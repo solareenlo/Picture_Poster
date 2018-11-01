@@ -27,12 +27,17 @@ export default class App extends Component<Props> {
     });
   };
 
+  upload = () => {};
+
   render() {
     return (
       <View style={styles.container}>
         <Image source={{uri: this.state.uri}} style={styles.image} />
-        <TouchableOpacity onPress={this.openPicker}>
+        <TouchableOpacity style={styles.button} onPress={this.openPicker}>
           <Text>Open</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={this.upload}>
+          <Text>Send</Text>
         </TouchableOpacity>
       </View>
     );
@@ -50,5 +55,8 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
     backgroundColor: "#EEE",
+  },
+  button: {
+    padding: 20,
   },
 });
