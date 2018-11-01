@@ -3,19 +3,34 @@ import {Platform,
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  Image
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 
 type Props = {};
 export default class App extends Component<Props> {
+  state = {
+    uri: ""
+  };
+
   openPicker = () => {
-    ImagePicker.showImagePicker({}, res => console.log(res));
+    ImagePicker.showImagePicker({}, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('User tapped custom button: ', response.customButton);
+      } else {
+        const source = { uri: response.uri };
+        this.setState(source);
+      }
+    });
   };
 
   render() {
     return (
       <View style={styles.container}>
+        <Image source={{uri: this.state.uri}} style={styles.image} />
         <TouchableOpacity onPress={this.openPicker}>
           <Text>Open</Text>
         </TouchableOpacity>
@@ -30,5 +45,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
+  },
+  image: {
+    width: "100%",
+    height: 200,
+    backgroundColor: "#EEE",
   },
 });
