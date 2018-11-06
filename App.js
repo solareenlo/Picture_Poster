@@ -7,6 +7,7 @@ import {Platform,
   Image
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
+import firebase from 'react-native-firebase';
 
 type Props = {};
 export default class App extends Component<Props> {
