@@ -6,7 +6,7 @@ cd node_modules/react-native && scripts/ios-install-third-party.sh --host && cd 
 ```
 を試してみる.
 
-## react-firebaseを使うには
+## react-navite-firebaseを使うには
 - `npm install --save react-native-firebase`を行う.
 - firebaseからGoogleService-Info.plistをダウンロードしてきて、ios/[YOUR APP NAME]/GoogleService-Info.plistに移動する.
 - XCodeでGoogleService-Info.plistをプロジェクトに追加して、Target Membershipのコンパスみたいな絵のところのチェックボタンにチェックを入れる
