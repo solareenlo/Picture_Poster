@@ -7,7 +7,7 @@ import {Platform,
   Image
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
-import firebase from 'react-native-firebase';
+import Firebase from 'react-native-firebase';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -28,7 +28,21 @@ export default class App extends Component<Props> {
     });
   };
 
-  upload = () => {};
+  upload = () => {
+    Firebase.storage()
+      .ref("images/" + new Date().getTime())
+      .putFile(this.state.uri, { contentType: "image/jpeg" })
+      .then(({ downloadURL }) =>
+        Firebase.database()
+          .ref("images/" + new Date().getTime())
+          .set({ downloadURL })
+      )
+      .then(() => alert("Uploaded"))
+      .catch(error => {
+        console.log(error);
+        alert("Error");
+      });
+  };
 
   render() {
     return (
