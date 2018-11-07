@@ -15,6 +15,14 @@ export default class App extends Component<Props> {
     uri: ""
   };
 
+  componentDidMount() {
+    Firebase.database()
+      .ref("images")
+      .on("value", d => {
+        console.log(d.toJSON());
+      });
+  }
+
   openPicker = () => {
     ImagePicker.showImagePicker({}, response => {
       if (response.didCancel) {
