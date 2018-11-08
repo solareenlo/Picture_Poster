@@ -2,6 +2,7 @@
 
 st arm-apple-darwin
 ## react-native run-iosして上手く動かない時は
+拡張子が.xcworkspaceのファイルを一度Xcodeで開いて、各種設定を行ってから、indexingを一度行ってから、次のコマンドをプロジェクトのフォルダ直下で実行.
 ```
 rm -r ~/.rncache/ && rm -rf node_modules/ && yarn cache clean && yarn install && cd node_modules/react-native && scripts/ios-install-third-party.sh --host && cd third-party && cd glog-0.3.5 && ./configure --host arm-apple-darwin && cd ../../../../
 ```
