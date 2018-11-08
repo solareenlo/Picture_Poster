@@ -6,12 +6,26 @@ import {
   FlatList,
   Image
 } from 'react-native';
+import Firebase from 'react-native-firebase';
 
 class Home extends React.Component {
+  state = {
+    data: [],
+  }
+
+  componentDidMount() {
+    Firebase.database()
+      .ref("images")
+      .on("value", d => {
+      console.log(Object.values(d.toJSON()));
+      });
+  }
+
   render() {
     return (
       <View style={{ flex: 1 }}>
         <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('NewPost')}
           style={{
             position: 'absolute',
             bottom: 20,
