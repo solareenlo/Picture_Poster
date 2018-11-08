@@ -17,13 +17,26 @@ class Home extends React.Component {
     Firebase.database()
       .ref("images")
       .on("value", d => {
-      console.log(Object.values(d.toJSON()));
+        this.setState({
+          data: Object.values(d.toJSON()).map(({ downloadURL }) => downloadURL)
+        });
       });
   }
 
   render() {
+    console.log(this.state);
     return (
       <View style={{ flex: 1 }}>
+        <FlatList
+          style={{ flex: 1 }}
+          data={this.state.data}
+          keyExtractor={key => key}
+          renderItem={({item}) => (
+            <Image source={{uri: item}}
+            style={{ width: "100%", height: 200 }}
+            />
+          )}
+        />
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate('NewPost')}
           style={{
