@@ -1,8 +1,9 @@
 # Picture_Poster
 
+st arm-apple-darwin
 ## react-native run-iosして上手く動かない時は
 ```
-rm -rf node_modules/ && yarn cache clean && yarn install && cd node_modules/react-native && scripts/ios-install-third-party.sh --host && cd third-party && cd glog-0.3.5 && ./configure && cd ../../../../
+rm -r ~/.rncache/ && rm -rf node_modules/ && yarn cache clean && yarn install && cd node_modules/react-native && scripts/ios-install-third-party.sh --host && cd third-party && cd glog-0.3.5 && ./configure --host arm-apple-darwin && cd ../../../../
 ```
 を試してみる.
 
