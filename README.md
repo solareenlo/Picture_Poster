@@ -1,8 +1,8 @@
 # Picture_Poster
 
-## react-native run-iosで動かない時は
+## react-native run-iosして上手く動かない時は
 ```
-cd node_modules/react-native && scripts/ios-install-third-party.sh --host && cd third-party && cd glog-0.3.5 && ./configure && cd ../../../../
+rm -rf node_modules/ && yarn cache clean && yarn install && cd node_modules/react-native && scripts/ios-install-third-party.sh --host && cd third-party && cd glog-0.3.5 && ./configure && cd ../../../../
 ```
 を試してみる.
 
@@ -17,8 +17,3 @@ cd node_modules/react-native && scripts/ios-install-third-party.sh --host && cd 
 - XCodeでios/[YOUR APP NAME].xcworkspaceを開いてみる.
 - `react-native link react-native-firebase`を行う.
 
-## githubからcloneして、react-native run-iosが動かなかった時は
-```
-rm -r ~/.rncache/ && cd node_modules/react-native && scripts/ios-install-third-party.sh --host && cd third-party && cd glog-0.3.5 && ./configure --host arm-apple-darwin && ../../scripts/ios-configure-glog.sh && cd ../../../../
-```
-を試してみる.
