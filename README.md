@@ -1,5 +1,10 @@
 # Picture_Poster
 
+## usage
+- ```git clone https://github.com/solareenlo/Picture_Poster.git```
+- ```cd Picture_Poster```
+- ```yarn install```
+
 ## react-native run-iosして上手く動かない時は
 拡張子が.xcworkspaceのファイルを一度Xcodeで開いて、各種設定を行ってから、indexingを一度行ってから、次のコマンドをプロジェクトのフォルダ直下で実行.
 ```
