@@ -4,6 +4,13 @@
 - ```git clone https://github.com/solareenlo/Picture_Poster.git```
 - ```cd Picture_Poster```
 - ```yarn install```
+- ```cd ios```
+- ```pod install```
+- ```cd Picture_Poster```
+- firebaseからGoogleService-Info.plistをダウンロードして、今いるフォルダに保存
+- ```cd ../../```
+- ```react-native run-ios```
+- うまく動かない時は直ぐ下の節を参照のこと.
 
 ## react-native run-iosして上手く動かない時は
 拡張子が.xcworkspaceのファイルを一度Xcodeで開いて、各種設定を行ってから、indexingを一度行ってから、次のコマンドをプロジェクトのフォルダ直下で実行.
